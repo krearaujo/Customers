@@ -3,6 +3,10 @@ import { FastifyRequest, FastifyReply } from "fastify";
 
 class DeleteCustomerController {
   async handle(request: FastifyRequest, reply: FastifyReply) {
+    console.log("DeleteCustomerController called", {
+      query: request.query,
+      params: request.params,
+    });
     const { id } = request.query as { id: string };
 
     const customerService = new DeleteCustomerService();

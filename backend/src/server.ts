@@ -5,7 +5,10 @@ import cors from "@fastify/cors";
 const App = Fastify({ logger: true });
 
 const start = async () => {
-  await App.register(cors);
+  await App.register(cors, {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "DELETE", "OPTIONS"],
+  });
   await App.register(routes);
 
   try {
